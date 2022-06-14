@@ -9,7 +9,9 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use App\Http\Requests\BulletinBoard\CreateUserRequest;
 use DB;
+use Auth;
 
 use App\Models\Users\Subjects;
 
@@ -57,9 +59,9 @@ class RegisterController extends Controller
         return view('auth.register.register', compact('subjects'));
     }
 
-    public function registerPost(Request $request)
+    public function registerPost(CreateUserRequest $request)
     {
-        DB::beginTransaction();
+        // DB::beginTransaction();
         try{
             $old_year = $request->old_year;
             $old_month = $request->old_month;
@@ -67,7 +69,6 @@ class RegisterController extends Controller
             $data = $old_year . '-' . $old_month . '-' . $old_day;
             $birth_day = date('Y-m-d', strtotime($data));
             $subjects = $request->subject;
-            dd($subjects);
 
             $user_get = User::create([
                 'over_name' => $request->over_name,
@@ -81,11 +82,13 @@ class RegisterController extends Controller
                 'password' => bcrypt($request->password)
             ]);
             $user = User::findOrFail($user_get->id);
-            $user->subjects()->attach($subjects);
-            DB::commit();
+            if (Auth::user()->admin_role == 4 ) {
+                $user->subjects()->attach($subjects);
+            }
+            // DB::commit();
             return view('auth.login.login');
         }catch(\Exception $e){
-            DB::rollback();
+            // DB::rollback();
             return redirect()->route('loginView');
         }
     }
