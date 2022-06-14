@@ -13,6 +13,8 @@ use App\Models\Users\User;
 use App\Http\Requests\BulletinBoard\PostFormRequest;
 use App\Http\Requests\CreateMainCategoryRequest;
 use App\Http\Requests\CreateSubCategoryRequest;
+use App\Http\Requests\CreateCommentRequest;
+use App\Http\Requests\PostEditRequest;
 use Auth;
 
 class PostsController extends Controller
@@ -59,7 +61,7 @@ class PostsController extends Controller
         return redirect()->route('post.show');
     }
 
-    public function postEdit(Request $request){
+    public function postEdit(PostEditRequest $request){
         Post::where('id', $request->post_id)->update([
             'post_title' => $request->post_title,
             'post' => $request->post_body,
@@ -88,7 +90,7 @@ class PostsController extends Controller
         return redirect()->route('post.input');
     }
 
-    public function commentCreate(Request $request){
+    public function commentCreate(CreateCommentRequest $request){
         PostComment::create([
             'post_id' => $request->post_id,
             'user_id' => Auth::id(),
