@@ -80,7 +80,7 @@ class PostsController extends Controller
 
     // 下記追加
     public function subCategoryCreate(CreateSubCategoryRequest $request){
-        $id = $request->input('main-category_id');
+        $id = $request->input('main_category_id');
         $subCategory = $request->input('sub_category_name');
 
         SubCategory::create([

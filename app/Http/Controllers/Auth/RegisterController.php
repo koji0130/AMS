@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\Users\User;
+use App\Models\Users\Subjects;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -12,8 +13,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests\BulletinBoard\CreateUserRequest;
 use DB;
 use Auth;
-
-use App\Models\Users\Subjects;
 
 class RegisterController extends Controller
 {
@@ -82,7 +81,7 @@ class RegisterController extends Controller
                 'password' => bcrypt($request->password)
             ]);
             $user = User::findOrFail($user_get->id);
-            if (Auth::user()->admin_role == 4 ) {
+            if ($user_get->role == 4 ) {
                 $user->subjects()->attach($subjects);
             }
             // DB::commit();
