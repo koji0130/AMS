@@ -22,7 +22,6 @@ class PostsController extends Controller
     public function show(Request $request){
         $posts = Post::with('user', 'postComments')->get();
         $categories = MainCategory::get();
-        //サブカテゴリー表示の記述。
         $like = new Like;
         $post_comment = new Post;
         if(!empty($request->keyword)){
@@ -39,7 +38,11 @@ class PostsController extends Controller
         }else if($request->my_posts){
             $posts = Post::with('user', 'postComments')
             ->where('user_id', Auth::id())->get();
+            //サブカテゴリーごとの投稿の表示追加
+        }else if($request->category_posts){
+            $posts = Post::with('user', 'postComments');
         }
+
         return view('authenticated.bulletinboard.posts', compact('posts', 'categories' ,'like', 'post_comment'));
     }
 

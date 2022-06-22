@@ -25,7 +25,7 @@ class Post extends Model
 
     public function subCategories(){
         // リレーションの定義
-        return $this->belongsToMany('App\Models\Categories\SubCategory','post_sub_categories','post_id','sub_category_id');
+        return $this->belongsToMany('App\Models\Categories\SubCategory','post_sub_categories','post_id','sub_category_id')->withPivot('id');
     }
 
     // コメント数
@@ -33,11 +33,22 @@ class Post extends Model
         return Post::with('postComments')->find($post_id)->postComments();
     }
 
+    // 投稿を削除した際、コメントや中間テーブルであるpost_sub_categoriesも削除。
+
     public static function boot(){
         parent::boot();
 
         static::deleting(function($postComments){
             $postComments->postComments()->delete();
         });
+
+        // static::deleting(function($postSubCategories){
+        //     $postSubCategories->SubCategories()->delete();
+        // });
+    }
+
+    //いいねとのリレーション
+    public function likes(){
+        return $this->hasMany('App\Models\Posts\Like');
     }
 }
