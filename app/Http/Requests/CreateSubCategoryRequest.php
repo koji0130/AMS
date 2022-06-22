@@ -31,6 +31,7 @@ class CreateSubCategoryRequest extends FormRequest
     public function messages(){
         return [
             'main_category_id.required' => 'メインカテゴリーは必須です。',
+            'main_category_id.exists' => 'メインカテゴリーが存在しません。',
             'sub_category_name.required' => 'サブカテゴリーは必須です。',
             'sub_category_name.max' => '100文字以内で入力してください。',
             'sub_category_name.unique' => '既に登録されているカテゴリーです。',

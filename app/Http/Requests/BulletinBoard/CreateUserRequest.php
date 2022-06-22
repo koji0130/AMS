@@ -24,7 +24,7 @@ class CreateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'over_name' => 'string|max:10',
+            'over_name' => 'required|string|max:10',
             'under_nama' => 'string|max:10',
             'over_name_kana' => 'required|string|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u|max:30',
             'under_name_kana' => 'required|string|regex:/^[ア-ン゛゜ァ-ォャ-ョー]+$/u|max:30',
