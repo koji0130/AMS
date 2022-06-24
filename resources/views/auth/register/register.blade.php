@@ -68,6 +68,9 @@
           </div>
         </div>
         <div class="mt-3">
+          @if($errors->first('sex'))
+          <span class="error_message">{{ $errors->first('sex') }}</span>
+          @endif
           <input type="radio" name="sex" class="sex" value="1">
           <label style="font-size:13px">男性</label>
           <input type="radio" name="sex" class="sex" value="2">
@@ -76,6 +79,9 @@
           <label style="font-size:13px">その他</label>
         </div>
         <div class="mt-3">
+          @if($errors->first('old_year'))
+          <span class="error_message">{{ $errors->first('old_year') }}</span>
+          @endif
           <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
           <select class="old_year" name="old_year">
             <option value="none">-----</option>
