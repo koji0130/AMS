@@ -60,8 +60,26 @@ class CalendarView{
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'. $reservePart . '参加'.'</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
           }else{
-            $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
-            $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+            $html[] = '<button type="submit" class="btn btn-danger p-0 w-75 js-modal-open" name="delete_date" style="font-size:12px" reserve_day= "'.$day->authReserveDate($day->everyDay())->first()->setting_reserve .'" reserve_part="'.$reservePart.'" reserve_id="" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
+            $html[] = '<input type="hidden" name="getPart[]" value="' . $day->authReserveDate($day->everyDay())->first()->setting_part .'" form="reserveParts">';
+            //モーダルの中身
+            $html[] = '<div class="modal js-modal"><div class="modal__bg js-modal-close">';
+            $html[] = '</div>';
+            $html[] = '<div class="modal__content">';
+            $html[] = '<p>'.'予約日時：';
+            $html[] = '<span class="modal-reserve-day"></span>';
+            $html[] = '</p>';
+            $html[] = '<p>'.'時間：';
+            $html[] = '<span class="modal-reserve-part"></span>';
+            $html[] = '</p>';
+            $html[] = '<p>'.'上記の予約をキャンセルしてもよろしいですか？'.'</p>';
+            $html[] = '<div class="w-50 m-auto edit-modal-btn d-flex">';
+            $html[] = '<a class="js-modal-close btn btn btn-primary d-block" href="">'."閉じる".'</a>';
+            $html[] = '<input type="hidden" class="edit-modal-hidden" name="reserve_id" value="" form="deleteParts">';
+            $html[] = '<input type="submit" class="btn btn-danger d-inline-block" value="キャンセル" form="deleteParts">';
+            $html[] = '</div>';
+            $html[] = '</div>';
+            $html[] = '</div>';
           }
         }else{
           //過去の日付に「受付終了」と表示させる。
