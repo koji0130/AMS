@@ -15,4 +15,24 @@
     </div>
   </div>
 </div>
+<div class="modal js-modal reserve-modal">
+  <div class="modal__bg js-modal-close"></div>
+    <div class="modal__content">
+      <p>予約日時：<span class="modal-reserve-day">
+        <span class="modal-reserve-day-display"></span>
+        <input type="hidden" name="reserve_day" value="" form="deleteParts">
+      </span></p>
+      <p>時間：<span class="modal-reserve-part">
+        <span class="modal-reserve-part-display"></span>
+        <input type="hidden" name="reserve_part" value="" form="deleteParts">
+      </span></p>
+      <p>上記の予約をキャンセルしてもよろしいですか？</p>
+        <div class="w-50 m-auto edit-modal-btn d-flex">
+          <a class="js-modal-close btn btn btn-primary d-block" href="">閉じる</a>
+          <input type="hidden" class="reserve-part-number" name="reserve_part_number" value="" form="deleteParts">
+          <input type="submit" class="btn btn-danger d-inline-block" value="キャンセル" form="deleteParts">
+        </div>
+    </div>
+</div>
+
 @endsection

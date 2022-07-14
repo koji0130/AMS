@@ -21,7 +21,6 @@ class CalendarsController extends Controller
     public function reserve(Request $request){
         DB::beginTransaction();
         try{
-            //ログインユーザーが予約している日は除いて＄getPartに代入。
             $getPart = $request->getPart;
             $getDate = $request->getData;
             $reserveDays = array_filter(array_combine($getDate, $getPart));
@@ -38,6 +37,17 @@ class CalendarsController extends Controller
     }
 
     public function delete(Request $request){
-        dd($request);
+        DB::beginTransaction();
+        try{
+            $deletePart = $request->reserve_part_number;
+            $deleteDate = $request->reserve_day;
+            $delete_settings = ReserveSettings::where('setting_reserve', $deleteDate)->where('setting_part', $deletePart)->first();
+            $delete_settings->increment('limit_users');
+            $delete_settings->users()->detach(Auth::id());
+            DB::commit();
+        }catch(\Exception $e){
+            DB::rollback();
+        }
+        return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
     }
 }
