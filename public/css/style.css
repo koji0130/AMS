@@ -80,6 +80,11 @@ li {
   width: 70%;
 }
 
+.reserve-detail {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* モーダル */
 .modal {
   display: none;
