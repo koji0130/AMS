@@ -30,7 +30,7 @@ class PostsController extends Controller
             ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
         }else if($request->category_word){
             $sub_category = $request->category_word;
-            $posts = Post::with('user', 'postComments')->get();
+            $posts = Post::with('user', 'postComments','subCategories')->get();
         }else if($request->like_posts){
             $likes = Auth::user()->likePostId()->get('like_post_id');
             $posts = Post::with('user', 'postComments')
@@ -38,9 +38,6 @@ class PostsController extends Controller
         }else if($request->my_posts){
             $posts = Post::with('user', 'postComments')
             ->where('user_id', Auth::id())->get();
-            //サブカテゴリーごとの投稿の表示追加
-        }else if($request->category_posts){
-            $posts = Post::with('user', 'postComments');
         }
 
         return view('authenticated.bulletinboard.posts', compact('posts', 'categories' ,'like', 'post_comment'));
