@@ -33,21 +33,21 @@ class CalendarWeekDay{
     if($one_part){
       $html[] = '<div class="reserve-detail">';
       $html[] = '<a href="'.route('calendar.admin.detail',['id' => $one_part->id , 'data' => $one_part->setting_reserve , 'part' => $one_part->setting_part]).'" class="day_part m-0 pt-1" style="color:#0000EE;">1部</a>';
-      $html[] = '<p class="day_part m-0 pt-1">'.$one_part->limit_users.'</p>';
+      // $html[] = '<p class="day_part m-0 pt-1">'.$one_part->limit_users.'</p>';
       $html[] = '<p class="day_part m-0 pt-1">'.$one_part->users()->count().'</p>';
       $html[] = '</div>';
     }
     if($two_part){
       $html[] = '<div class="reserve-detail">';
       $html[] = '<a  href="'.route('calendar.admin.detail',['id' => $two_part->id , 'data' => $two_part->setting_reserve , 'part' => $two_part->setting_part]).'" class="day_part m-0 pt-1" style="color:#0000EE;">2部</a>';
-      $html[] = '<p class="day_part m-0 pt-1">'.$two_part->limit_users.'</p>';
+      // $html[] = '<p class="day_part m-0 pt-1">'.$two_part->limit_users.'</p>';
       $html[] = '<p class="day_part m-0 pt-1">'.$two_part->users()->count().'</p>';
       $html[] = '</div>';
     }
     if($three_part){
       $html[] = '<div class="reserve-detail">';
       $html[] = '<a href="'.route('calendar.admin.detail',['id' => $three_part->id , 'data' => $three_part->setting_reserve , 'part' => $three_part->setting_part]).'" class="day_part m-0 pt-1" style="color:#0000EE;">3部</a>';
-      $html[] = '<p class="day_part m-0 pt-1">'.$three_part->limit_users.'</p>';
+      // $html[] = '<p class="day_part m-0 pt-1">'.$three_part->limit_users.'</p>';
       $html[] = '<p class="day_part m-0 pt-1">'.$three_part->users()->count().'</p>';
       $html[] = '</div>';
     }
