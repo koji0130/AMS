@@ -21,6 +21,6 @@ class Like extends Model
         return $this->where('like_post_id', $post_id)->get()->count();
     }
     public function posts(){
-        return $this->belongsToMany('App\Models\Posts\Post');
+        return $this->belongsTo('App\Models\Posts\Post');
     }
 }

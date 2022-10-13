@@ -24,13 +24,17 @@ class PostsController extends Controller
         $categories = MainCategory::get();
         $like = new Like;
         $post_comment = new Post;
+        $likes_count = Post::withCount('likes')->get();
         if(!empty($request->keyword)){
             $posts = Post::with('user', 'postComments')
             ->where('post_title', 'like', '%'.$request->keyword.'%')
             ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
         }else if($request->category_word){
             $sub_category = $request->category_word;
-            $posts = Post::with('user', 'postComments','subCategories')->get();
+            $posts = Post::with('user', 'postComments','subCategories')
+            ->whereHas('subCategories',function($q) use ($sub_category){
+                $q->where('sub_categories.sub_category',$sub_category);
+            })->get();
         }else if($request->like_posts){
             $likes = Auth::user()->likePostId()->get('like_post_id');
             $posts = Post::with('user', 'postComments')
@@ -40,7 +44,7 @@ class PostsController extends Controller
             ->where('user_id', Auth::id())->get();
         }
 
-        return view('authenticated.bulletinboard.posts', compact('posts', 'categories' ,'like', 'post_comment'));
+        return view('authenticated.bulletinboard.posts', compact('posts', 'categories' ,'like', 'post_comment','likes_count'));
     }
 
     public function postDetail($post_id){
