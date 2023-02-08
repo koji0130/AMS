@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+html {
+    height: 100%;
+    font-size: 100%;
+}
+
+/*.container {*/
+/* max-width: 1024px;*/
+/*最大横幅の値を設定*/
+/*width: 90%;*/
+/*要素が設置される範囲*/
+/*margin: 200px;*/
+/*左右の余白を平等に調整してくれる*/
+/*}*/
+
+body {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    /*height: 100%;*/
+    /*background: #186AC9;*/
+    background: -moz-linear-gradient(top, #3493EB, #FFE32E);
+    background: -webkit-linear-gradient(top, #3493EB, #FFE32E);
+    background: linear-gradient(to bottom, #3493EB, #FFE32E);
+    color: white;
+}
+
+/*section {
+    background-color: #ccd8ff;
+    padding: 50px 0;
+}*/
+
+
+
+.container {
+    /*display: flex;*/
+    justify-content: center;
+    text-align: center;
+    padding: 80px 0;
+    /*background-color: black;*/
+}
+
+/*.wrapper {
+    max-width: 1100px;
+    margin: auto;
+}*/
+
+/*ヘッダー*/
+
+
+img {
+    width: 150px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+#title {
+    font-size: 25px;
+}
+
+/*↓ログインフォーム↓*/
+
+/*フォーム背景*/
+.contact {
+    background-color: black;
+}
+
+/*AtlasSNSへようこそ*/
+.ja-title {
+    font-size: 0.95rem;
+    margin: 20px;
+}
+
+/*ラベル文字*/
+.contact-text {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+/*フォーム*/
+.input {
+    color: #000000;
+    border: 0.5px solid #000;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 15%;
+    height: 30px;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+/*ログインボタン*/
+.button {
+    display: inline-block;
+    font-size: 12pt;
+    /* 文字サイズ */
+    text-align: right;
+    /* 文字位置   */
+    cursor: pointer;
+    /* カーソル   */
+    padding: 8px;
+    /* 余白       */
+    background: #EE3950;
+    /* 背景色     */
+    color: #ffffff;
+    /* 文字色     */
+    line-height: 1em;
+    /* 1行の高さ  */
+    transition: .3s;
+    /* なめらか変化 */
+    border: 2px solid #EE3950;
+    /* 枠の指定 */
+    border-radius: 5px
+        /*角丸*/
+}
+
+/*戻るボタン*/
+.back {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+/*登録完了ページ topへ戻る*/
+.btn {
+    display: inline-block;
+    font-size: 12pt;
+    /* 文字サイズ */
+    text-align: right;
+    /* 文字位置   */
+    cursor: pointer;
+    /* カーソル   */
+    padding: 8px;
+    /* 余白       */
+    background: #EE3950;
+    /* 背景色     */
+    color: #ffffff;
+    /* 文字色     */
+    line-height: 1em;
+    /* 1行の高さ  */
+    transition: .3s;
+    /* なめらか変化 */
+    border: 2px solid #EE3950;
+    /* 枠の指定 */
+    border-radius: 5px
+        /*角丸*/
+}

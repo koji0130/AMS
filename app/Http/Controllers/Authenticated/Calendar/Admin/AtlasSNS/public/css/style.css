@@ -1,0 +1,388 @@
+@charset "utf-8";
+
+html {}
+
+body {}
+
+/* ↓login.blade ヘッダー 上↓*/
+header {
+    background: #186AC9;
+    height: 100px;
+    width: 1440px;
+    position: relative;
+    flex-wrap: nowrap;
+}
+
+h1 {
+    line-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 20px;
+}
+
+/*ユーザー名,アイコン、アコーディオンメニュー*/
+.user {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+/*ユーザー名*/
+.username {
+    display: flex;
+    line-height: 100px;
+    margin-right: 0;
+    margin-left: 1100px;
+    width: 20%;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/*アイコン*/
+.icon {
+    display: flex;
+    margin-top: 15px;
+    margin-right: 0;
+    margin-left: auto;
+    width: 10%;
+}
+
+/* headerのアコーディオンメニュー↓ */
+.accordion-container {
+    display: flex;
+    margin-top: 15px;
+    text-align: center;
+    position: absolute;
+    right: 0px;
+    border-top: none;
+    outline: 0;
+    cursor: pointer;
+
+}
+
+/*アコーディオンメニュー*/
+.accordion-container .accordion-title {
+    display: flex;
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #fff
+        /*background: #000;*/
+        cursor: pointer;
+
+}
+
+.accordion-container .accordion-title:hover,
+.accordion-container .accordion-title:active,
+.accordion-container .content-entry.open .accordion-title {
+    background-color: #00aaa7;
+    color: white;
+}
+
+.accordion-container .accordion-title:hover i:before,
+.accordion-container .accordion-title:hover i:active,
+.accordion-container .content-entry.open i {
+    color: white;
+}
+
+/*ユーザー名 〜〜さん*/
+.accordion-title {
+    position: relative;
+    right: 100px;
+    color: #fff;
+    font-size: 1.5em;
+}
+
+/*三角*/
+.accordion-title:after {
+    content: "";
+    position: relative;
+    right: -250px;
+    top: 5%;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-top: solid 4px #fff;
+    border-right: solid 4px #fff;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+.accordion-title.open:after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+/* CSS for CodePen */
+.accordion-container {
+    width: 300px;
+    margin: 1.875em auto;
+    z-index: 1;
+}
+
+.accordion-content {
+    display: block;
+    padding: 20px 29px 20px 29px;
+    margin: 2.4em 0;
+    font-weight: normal;
+    border: solid 1px #000000;
+    background: #fff;
+    font-size: 1.8rem;
+}
+
+.accordion-list {
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+
+/* headerのアコーディオンメニュー↑ */
+
+/*サイドバーのメニュー*/
+/*フォロー、フォロワーボタン*/
+.btn {
+    display: block;
+    position: relative;
+    padding: 0.625em 0.625em 0.625em 2em;
+    font-size: 1.0em;
+    font-weight: normal;
+    color: #fff;
+    background: #0079c1;
+    cursor: pointer;
+}
+
+/* ↑login.blade ヘッダー 上↑*/
+
+
+/*↓login.blade 右のメインメニュー↓*/
+#row {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#container,
+#follows-container {
+    flex: 0 0 80%;
+}
+
+#side-bar {
+    flex: 0 0 19%;
+    border-left: 1px solid #727272;
+}
+
+/* 編集 モーダル */
+.content {
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.btn {
+    border-radius: 5px;
+    background-color: #186AC9;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    width: 150px;
+}
+
+.modal {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.modal__bg {
+    background: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+
+.modal__content {
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+}
+
+/*↓フォローリストとか↓*/
+
+#side-bar {
+    white-space: nowrap;
+}
+
+.confirm {
+    position: relative;
+}
+
+.user-name {
+    display: flex;
+    padding: 20px 0px 20px 10px;
+    font-size: 15px;
+}
+
+.side-follow-btn {
+    padding: 20px 0px 20px 10px;
+    font-size: 15px;
+}
+
+.btn {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    width: 150px;
+    font-size: 15px;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.mgr-40 {
+    margin-right: 40px;
+}
+
+.mgr-30 {
+    margin-right: 40px;
+}
+
+.search-btn {
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: #206ccc;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    width: 150px;
+    font-size: 15px;
+    margin-right: 50px;
+    margin-left: auto;
+}
+
+/*↑login.blade 右のメインメニュー↑*/
+
+
+/*↓index.blade 全体↓*/
+
+button {
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+button img {
+    display: block;
+}
+
+/*↑index.blade 全体↑*/
+
+/*↓index.blade 投稿フォーム↓*/
+.form-group {
+    border-bottom: 5px solid #e0e0e0;
+}
+
+.form-control {
+    border: none;
+    width: 1140px;
+    height: 100px;
+}
+
+/*↑index.blade 投稿フォーム↑*/
+
+/*↓index.blade 投稿表示↓*/
+.view-container {
+    border-bottom: 1px solid black;
+}
+
+/*投稿リスト*/
+
+.post-container {
+    position: relative;
+}
+
+.post-icon {
+    display: block;
+    position: absolute;
+    left: 230px;
+    margin-top: 10px;
+}
+
+.post-name {
+    padding: 20px 300px;
+    font-size: 1.0rem;
+    font-weight: bold;
+}
+
+.post {
+    padding: 10px 300px;
+    font-size: 95%;
+}
+
+.post-time {
+    display: flex;
+    position: absolute;
+    right: 100px;
+    font-size: 80%;
+    margin-top: 25px;
+}
+
+/*編集、削除*/
+.btn-content {
+    display: flex;
+    position: absolute;
+    right: 95px;
+    margin-top: 45px;
+}
+
+button {
+    display: flex;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+button img {
+    display: block;
+}
+
+/*↑index.blade 投稿表示↑*/
+
+/*↓follow.blade↓*/
+
+.follows-container {}
+
+/*↓フォローアイコンリスト↓*/
+.follow-iconlist {
+    border-bottom: 5px solid #e0e0e0;
+    height: 180px;
+    display: flex;
+}
+
+.followlist {
+    line-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 20px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.follow-iconbox {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
