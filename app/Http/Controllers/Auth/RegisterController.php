@@ -62,6 +62,7 @@ class RegisterController extends Controller
     {
         // dd(User::with('subjects')->get());
         // DB::beginTransaction();
+        dd($request);
         try{
             $old_year = $request->old_year;
             $old_month = $request->old_month;
@@ -82,9 +83,7 @@ class RegisterController extends Controller
                 'password' => bcrypt($request->password)
             ]);
             $user = User::findOrFail($user_get->id);
-            if ($user_get->role == 4 ) {
-                $user->subjects()->attach($subjects);
-            }
+            $user->subjects()->attach($subjects);
             // DB::commit();
             return view('auth.login.login');
         }catch(\Exception $e){
