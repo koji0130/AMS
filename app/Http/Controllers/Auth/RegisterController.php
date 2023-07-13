@@ -62,7 +62,7 @@ class RegisterController extends Controller
     {
         // dd(User::with('subjects')->get());
         // DB::beginTransaction();
-        dd($request);
+        // dd($request);
         try{
             $old_year = $request->old_year;
             $old_month = $request->old_month;
